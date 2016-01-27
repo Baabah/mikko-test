@@ -11,3 +11,9 @@ $app->register(new ConsoleServiceProvider(), array(
     'console.version'           => '1.0.0',
     'console.project_directory' => __DIR__.'/..'
 ));
+
+// Add payroll command to the console
+use Commands\PayrollDatesCommand;
+$console = $app['console'];
+$console->add(new PayrollDatesCommand());
+$console->run();
