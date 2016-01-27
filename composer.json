@@ -1,0 +1,11 @@
+{
+    "name": "baabah/mikko-test",
+    "description": "Payroll date calculation",
+    "authors": [
+        {
+            "name": "Peter Ton",
+            "email": "peterton91@gmail.com"
+        }
+    ],
+    "require": {}
+}
