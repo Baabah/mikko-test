@@ -1,0 +1,19 @@
+{
+    "name": "baabah/mikko-test",
+    "description": "Payroll date calculation",
+    "authors": [
+        {
+            "name": "Peter Ton",
+            "email": "peterton91@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "": "src/"
+        }
+    },
+    "require": {
+        "silex/silex": "~1.3",
+        "knplabs/console-service-provider": "^1.0"
+    }
+}
