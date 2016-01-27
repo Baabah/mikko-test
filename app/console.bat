@@ -1,1 +1,1 @@
-php app/console.php
+php app/console.php %*
