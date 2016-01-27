@@ -7,5 +7,7 @@
             "email": "peterton91@gmail.com"
         }
     ],
-    "require": {}
+    "require": {
+        "silex/silex": "~1.3"
+    }
 }
