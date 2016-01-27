@@ -4,9 +4,51 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "d15689b53f7b317fde66eb15ca81cbb1",
-    "content-hash": "4a2e0efe525b88bd5ab7dcb017cdbbc6",
+    "hash": "b201e04cb46f0c2b11cae552400b7d2f",
+    "content-hash": "0ded33f1b01f712b013fb91a0370338b",
     "packages": [
+        {
+            "name": "knplabs/console-service-provider",
+            "version": "v1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/KnpLabs/ConsoleServiceProvider.git",
+                "reference": "1f1a3315409814d01702a47a8823549c6996de41"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/KnpLabs/ConsoleServiceProvider/zipball/1f1a3315409814d01702a47a8823549c6996de41",
+                "reference": "1f1a3315409814d01702a47a8823549c6996de41",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2",
+                "symfony/console": "~2.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Knp\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "KnpLabs",
+                    "homepage": "http://knplabs.com"
+                }
+            ],
+            "description": "console service provider for Silex",
+            "homepage": "http://knplabs.com",
+            "keywords": [
+                "console",
+                "silex"
+            ],
+            "time": "2013-06-13 12:43:39"
+        },
         {
             "name": "pimple/pimple",
             "version": "v1.1.1",
@@ -167,6 +209,66 @@
                 "microframework"
             ],
             "time": "2016-01-06 14:59:35"
+        },
+        {
+            "name": "symfony/console",
+            "version": "v2.8.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/console.git",
+                "reference": "d0239fb42f98dd02e7d342f793c5d2cdee0c478d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/console/zipball/d0239fb42f98dd02e7d342f793c5d2cdee0c478d",
+                "reference": "d0239fb42f98dd02e7d342f793c5d2cdee0c478d",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.9",
+                "symfony/polyfill-mbstring": "~1.0"
+            },
+            "require-dev": {
+                "psr/log": "~1.0",
+                "symfony/event-dispatcher": "~2.1|~3.0.0",
+                "symfony/process": "~2.1|~3.0.0"
+            },
+            "suggest": {
+                "psr/log": "For using the console logger",
+                "symfony/event-dispatcher": "",
+                "symfony/process": ""
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.8-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Console\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony Console Component",
+            "homepage": "https://symfony.com",
+            "time": "2016-01-14 08:33:16"
         },
         {
             "name": "symfony/debug",
@@ -418,6 +520,65 @@
             "description": "Symfony HttpKernel Component",
             "homepage": "https://symfony.com",
             "time": "2015-12-26 16:46:13"
+        },
+        {
+            "name": "symfony/polyfill-mbstring",
+            "version": "v1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/polyfill-mbstring.git",
+                "reference": "1289d16209491b584839022f29257ad859b8532d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/1289d16209491b584839022f29257ad859b8532d",
+                "reference": "1289d16209491b584839022f29257ad859b8532d",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "suggest": {
+                "ext-mbstring": "For best performance"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.1-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Polyfill\\Mbstring\\": ""
+                },
+                "files": [
+                    "bootstrap.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolas Grekas",
+                    "email": "p@tchwork.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony polyfill for the Mbstring extension",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "compatibility",
+                "mbstring",
+                "polyfill",
+                "portable",
+                "shim"
+            ],
+            "time": "2016-01-20 09:13:37"
         },
         {
             "name": "symfony/routing",
