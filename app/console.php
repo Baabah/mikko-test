@@ -8,11 +8,12 @@ $app = new Silex\Application();
 $app->register(new \Knp\Provider\ConsoleServiceProvider(), [
     'console.name' => 'Mikko Test',
     'console.version' => '1.0.0',
-    'console.project_directory' => __DIR__ . '/..'
+    'console.project_directory' => __DIR__ . '/../'
 ]);
 
 // Regiter service providers
 $app->register(new \ServiceProviders\PaymentServiceProvider());
+$app->register(new \ServiceProviders\ExportServiceProvider());
 
 // Add payroll command to the console
 $console = $app['console'];

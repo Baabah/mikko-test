@@ -23,7 +23,26 @@ class PayrollDatesCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
+        // Read specified filename
         $outputFile = $input->getArgument('output filename');
-        $output->writeln('outputting to ' . $outputFile);
+
+        // Get app and project dir
+        $app = $this->getSilexApplication();
+        $root = $this->getProjectDirectory();
+
+        // Retrieve payments
+        $payments = $app['yearPayments'];
+
+        // Export csv to payments
+        $csvExporter = $app['csvExporter']($outputFile, $root);
+        $success = $csvExporter->export($payments);
+
+        // Show output message
+        if ($success == true) {
+            $output->writeln('Successfully calculated salary and bonus dates for this year.');
+            return true;
+        }
+        $output->writeln('Something went wrong, please check error messages for more details.');
+        return false;
     }
 }
