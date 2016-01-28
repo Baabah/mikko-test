@@ -26,7 +26,7 @@ class YearPayments implements Exportable
     public function __construct(PaymentFactory $paymentFactory)
     {
         $this->paymentFactory = $paymentFactory;
-        $this->startDate = new \DateTime();
+        $this->startDate = new \DateTime('midnight');
     }
 
     /**
@@ -52,14 +52,15 @@ class YearPayments implements Exportable
      */
     private function getRemainingMonths(\DateTime $startDate)
     {
-        // TODO check for correct time (to prevent comparison breaking)
-        $endDate = new \DateTime('first day of next year');
+        $endDate = new \DateTime('first day of next year midnight');
         $interval = new \DateInterval('P1M');
-
-        // TODO change to explicit prevention of first month payment
-        $periodStartDate = new \DateTime('first day of next month');
+        $periodStartDate = new \DateTime('first day of next month midnight');
         $period = new \DatePeriod($periodStartDate, $interval, $endDate);
+
+        // Add current date as first element
         $dateArray = [$startDate];
+
+        // Added every first day of the upcoming months
         foreach ($period as $dateTime) {
             $dateArray[] = $dateTime;
         }
