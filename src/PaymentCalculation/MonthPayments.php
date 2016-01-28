@@ -15,8 +15,8 @@ class MonthPayments implements Exportable
 
     public function getExportArray()
     {
-        $salaryDate = $this->getFormatteDate($this->getSalaryDate());
-        $bonusDate = $this->getFormatteDate($this->getBonusDate());
+        $salaryDate = $this->getFormattedDate($this->getSalaryDate());
+        $bonusDate = $this->getFormattedDate($this->getBonusDate());
         return [
             'monthName' => $this->dateTime->format('F'),
             'bonusDate' => $bonusDate,
@@ -71,7 +71,7 @@ class MonthPayments implements Exportable
         return false;
     }
 
-    private function getFormatteDate($dateTime)
+    private function getFormattedDate($dateTime)
     {
         if (is_null($dateTime)) {
             return '-';
