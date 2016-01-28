@@ -88,7 +88,7 @@ class MonthPayments implements Exportable
     }
 
     /**
-     * Checks wether a day is in the weekend or not
+     * Checks whether a day is in the weekend or not
      * @param \DateTime $dateTime
      * @return bool
      */
