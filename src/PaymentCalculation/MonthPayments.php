@@ -52,7 +52,7 @@ class MonthPayments
     private function isWeekend(\DateTime $dateTime)
     {
         $dayOfWeek = $dateTime->format('N');
-        if ($dayOfWeek == 6 || $dayOfWeek == 7) {
+        if ($dayOfWeek === '6' || $dayOfWeek === '7') {
             return true;
         }
         return false;
