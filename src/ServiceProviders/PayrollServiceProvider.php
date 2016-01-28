@@ -2,17 +2,16 @@
 
 namespace ServiceProviders;
 
-use PaymentCalculation\PaymentController;
-use PaymentCalculation\PaymentFactory;
-use PaymentCalculation\YearPayments;
+use Payroll\PaymentFactory;
+use Payroll\YearPayments;
 use Silex\Application;
 use Silex\ServiceProviderInterface;
 
 /**
- * This class provides all instantiatable classes in the PaymentCalculation namespace
+ * This class provides all instantiatable classes in the Payroll namespace
  * Class PaymentServiceProvider
  */
-class PaymentServiceProvider implements ServiceProviderInterface
+class PayrollServiceProvider implements ServiceProviderInterface
 {
     /**
      * This method is used to define services available to the application

@@ -1,6 +1,6 @@
 <?php
 
-namespace PaymentCalculation;
+namespace Payroll;
 
 /**
  * This class is used for creating MonthPayments objects
