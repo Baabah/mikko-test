@@ -2,22 +2,28 @@
 
 namespace PaymentCalculation;
 
-class YearPayments
+use Exporting\Exportable;
+
+class YearPayments implements Exportable
 {
     private $paymentFactory;
+    private $startDate;
 
     public function __construct(PaymentFactory $paymentFactory)
     {
         $this->paymentFactory = $paymentFactory;
+        $this->startDate = new \DateTime();
     }
 
-    public function getPayments(\DateTime $startDate = null)
+    public function getExportArray()
     {
-        if (is_null($startDate)) {
-            $startDate = new \DateTime();
+        $monthDates = $this->getRemainingMonths($this->startDate);
+        $payments = $this->paymentFactory->createPayments($monthDates);
+        $exportArray = [];
+        foreach ($payments as $payment) {
+            $exportArray[] = $payment->getExportArray();
         }
-        $monthDates = $this->getRemainingMonths($startDate);
-        return $this->paymentFactory->createPayments($monthDates);
+        return $exportArray;
     }
 
     private function getRemainingMonths(\DateTime $startDate)

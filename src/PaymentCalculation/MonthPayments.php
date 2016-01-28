@@ -2,13 +2,26 @@
 
 namespace PaymentCalculation;
 
-class MonthPayments
+use Exporting\Exportable;
+
+class MonthPayments implements Exportable
 {
     private $dateTime;
 
     public function __construct(\DateTime $dateTime)
     {
         $this->dateTime = $dateTime;
+    }
+
+    public function getExportArray()
+    {
+        $salaryDate = $this->getFormatteDate($this->getSalaryDate());
+        $bonusDate = $this->getFormatteDate($this->getBonusDate());
+        return [
+            'monthName' => $this->dateTime->format('F'),
+            'bonusDate' => $bonusDate,
+            'salaryDate' => $salaryDate
+        ];
     }
 
     private function getBonusDate()
@@ -56,5 +69,13 @@ class MonthPayments
             return true;
         }
         return false;
+    }
+
+    private function getFormatteDate($dateTime)
+    {
+        if (is_null($dateTime)) {
+            return '-';
+        }
+        return $dateTime->format('d-m-Y');
     }
 }
