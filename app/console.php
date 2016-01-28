@@ -8,7 +8,7 @@ $app = new Silex\Application();
 $app->register(new \Knp\Provider\ConsoleServiceProvider(), [
     'console.name' => 'Mikko Test',
     'console.version' => '1.0.0',
-    'console.project_directory' => __DIR__ . '/..'
+    'console.project_directory' => __DIR__ . '/../'
 ]);
 
 // Regiter service providers
