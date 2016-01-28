@@ -13,6 +13,7 @@ $app->register(new \Knp\Provider\ConsoleServiceProvider(), [
 
 // Regiter service providers
 $app->register(new \ServiceProviders\PaymentServiceProvider());
+$app->register(new \ServiceProviders\ExportServiceProvider());
 
 // Add payroll command to the console
 $console = $app['console'];
