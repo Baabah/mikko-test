@@ -4,11 +4,11 @@ namespace PaymentCalculation;
 
 class PaymentFactory
 {
-    public function createPayments(array $monthDates)
+    public function createPayments(array $dateTimes)
     {
         $payments = [];
-        foreach ($monthDates as $monthDate) {
-            $payments[] = new MonthPayments($monthDate);
+        foreach ($dateTimes as $dateTime) {
+            $payments[] = new MonthPayments($dateTime);
         }
         return $payments;
     }

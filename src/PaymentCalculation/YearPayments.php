@@ -22,7 +22,17 @@ class YearPayments
 
     private function getRemainingMonths(\DateTime $startDate)
     {
-        // TODO change to actual implementation
-        return ['01-2015', '02-2015'];
+        // TODO check for correct time (to prevent comparison breaking)
+        $endDate = new \DateTime('first day of next year');
+        $interval = new \DateInterval('P1M');
+
+        // TODO change to explicit prevention of first month payment
+        $periodStartDate = new \DateTime('first day of next month');
+        $period = new \DatePeriod($periodStartDate, $interval, $endDate);
+        $dateArray = [$startDate];
+        foreach ($period as $dateTime) {
+            $dateArray[] = $dateTime;
+        }
+        return $dateArray;
     }
 }
