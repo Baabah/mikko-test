@@ -20,4 +20,4 @@ The project can be used to calculate bonus and salary payment dates based on the
 This application can be utilized by entering **app\console payroll:dates \<output filename\>** on the commandline
 
 ## Testing
-To execute tests run **composer\bin\phpunit**
+To execute tests run **vendor\bin\phpunit**
