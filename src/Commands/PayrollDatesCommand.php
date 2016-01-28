@@ -18,8 +18,7 @@ class PayrollDatesCommand extends Command
                 'output filename',
                 InputArgument::REQUIRED,
                 'Filename of output file'
-            )
-        ;
+            );
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
@@ -27,6 +26,4 @@ class PayrollDatesCommand extends Command
         $outputFile = $input->getArgument('output filename');
         $output->writeln('outputting to ' . $outputFile);
     }
-
 }
- 
