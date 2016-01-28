@@ -2,6 +2,7 @@
 
 namespace ServiceProviders;
 
+use Payroll\MonthPayments;
 use Payroll\PaymentFactory;
 use Payroll\YearPayments;
 use Silex\Application;
@@ -19,8 +20,11 @@ class PayrollServiceProvider implements ServiceProviderInterface
      */
     public function register(Application $app)
     {
+        $app['monthPayments'] = $app->protect(function ($dateTime) use ($app) {
+            return new MonthPayments($dateTime);
+        });
         $app['paymentFactory'] = function () use ($app) {
-            return new PaymentFactory();
+            return new PaymentFactory($app['monthPayments']);
         };
         $app['yearPayments'] = function () use ($app) {
             return new YearPayments($app['paymentFactory']);
