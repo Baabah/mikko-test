@@ -7,8 +7,15 @@ use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
+/**
+ * This class represents a commandline command for retrieving payroll dates
+ * Class PayrollDatesCommand
+ */
 class PayrollDatesCommand extends Command
 {
+    /**
+     * This method specifies the command name, description and arguments
+     */
     protected function configure()
     {
         $this
@@ -21,6 +28,12 @@ class PayrollDatesCommand extends Command
             );
     }
 
+    /**
+     * This method is executed when the 'payroll:dates' command is run
+     * @param InputInterface $input
+     * @param OutputInterface $output
+     * @return bool
+     */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         // Read specified filename
