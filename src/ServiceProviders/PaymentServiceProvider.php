@@ -18,9 +18,6 @@ class PaymentServiceProvider implements ServiceProviderInterface
         $app['yearPayments'] = function () use ($app) {
             return new YearPayments($app['paymentFactory']);
         };
-        $app['paymentController'] = function () use ($app) {
-            return new PaymentController($app['yearPayments']);
-        };
     }
 
     public function boot(Application $app)
