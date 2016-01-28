@@ -13,15 +13,15 @@ class MonthPayments implements Exportable
     /**
      * @var \DateTime
      */
-    private $dateTime;
+    private $currentDate;
 
     /**
      * Constructs the MonthPayments object and sets the dateTime object
-     * @param \DateTime $dateTime
+     * @param \DateTime $currentDate
      */
-    public function __construct(\DateTime $dateTime)
+    public function __construct(\DateTime $currentDate)
     {
-        $this->dateTime = $dateTime;
+        $this->currentDate = $currentDate;
     }
 
     /**
@@ -33,7 +33,7 @@ class MonthPayments implements Exportable
         $salaryDate = $this->getFormattedDate($this->getSalaryDate());
         $bonusDate = $this->getFormattedDate($this->getBonusDate());
         return [
-            'monthName' => $this->dateTime->format('F'),
+            'monthName' => $this->currentDate->format('F'),
             'bonusDate' => $bonusDate,
             'salaryDate' => $salaryDate
         ];
@@ -47,7 +47,7 @@ class MonthPayments implements Exportable
     private function getBonusDate()
     {
         // Get 15th of month
-        $clone = clone $this->dateTime;
+        $clone = clone $this->currentDate;
         $bonusDate = $clone->modify('first day of this month')->modify('+14 days');
 
         // Pay bonus on following wednesday for weekends
@@ -56,7 +56,7 @@ class MonthPayments implements Exportable
         }
 
         // Return null if bonus has already been paid this month
-        if ($bonusDate < $this->dateTime) {
+        if ($this->currentDate > $bonusDate) {
             return null;
         }
 
@@ -71,7 +71,7 @@ class MonthPayments implements Exportable
     private function getSalaryDate()
     {
         // Get last day of month
-        $clone = clone $this->dateTime;
+        $clone = clone $this->currentDate;
         $lastDay = $clone->modify('last day of this month');
 
         // If last day of month is a weekend, pay the friday beforehand
@@ -80,7 +80,7 @@ class MonthPayments implements Exportable
         }
 
         // Return null if salary has already been paid this month
-        if ($lastDay < $this->dateTime) {
+        if ($this->currentDate > $lastDay) {
             return null;
         }
 
