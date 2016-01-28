@@ -12,10 +12,13 @@
             "": "src/"
         }
     },
+    "require-dev": {
+        "squizlabs/php_codesniffer": "*",
+        "phpmd/phpmd": "^2.3",
+        "phpunit/phpunit": "5.1.*"
+    },
     "require": {
         "silex/silex": "~1.3",
-        "knplabs/console-service-provider": "^1.0",
-        "squizlabs/php_codesniffer": "*",
-        "phpmd/phpmd": "^2.3"
+        "knplabs/console-service-provider": "^1.0"
     }
 }

@@ -1,9 +1,8 @@
 <?php
 
 // Load application
-require_once __DIR__ . '/../vendor/autoload.php';
+require_once __DIR__ . '/bootstrap.php';
 $app = new Silex\Application();
-date_default_timezone_set('Europe/Amsterdam');
 
 // Init console
 $app->register(new \Knp\Provider\ConsoleServiceProvider(), [

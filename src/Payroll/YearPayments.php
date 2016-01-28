@@ -26,7 +26,6 @@ class YearPayments implements Exportable
     public function __construct(PaymentFactory $paymentFactory)
     {
         $this->paymentFactory = $paymentFactory;
-        $this->startDate = new \DateTime('midnight');
     }
 
     /**
@@ -47,11 +46,11 @@ class YearPayments implements Exportable
 
     /**
      * This method retrieves DateTime objects for all months between the current date and the end of the year
-     * @param \DateTime $startDate
      * @return array
      */
-    private function getRemainingMonths(\DateTime $startDate)
+    private function getRemainingMonths()
     {
+        $startDate = new \DateTime('midnight');
         $endDate = new \DateTime('first day of next year midnight');
         $interval = new \DateInterval('P1M');
         $periodStartDate = new \DateTime('first day of next month midnight');
