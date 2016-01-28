@@ -4,15 +4,30 @@ namespace PaymentCalculation;
 
 use Exporting\Exportable;
 
+/**
+ * This class represents all payments for one single month, these can be exported via the Exportable interface
+ * Class MonthPayments
+ */
 class MonthPayments implements Exportable
 {
+    /**
+     * @var \DateTime
+     */
     private $dateTime;
 
+    /**
+     * Constructs the MonthPayments object and sets the dateTime object
+     * @param \DateTime $dateTime
+     */
     public function __construct(\DateTime $dateTime)
     {
         $this->dateTime = $dateTime;
     }
 
+    /**
+     * This method is implemented to match the Exportable interface, which is used by Exporter objects to retrieve data
+     * @return array
+     */
     public function getExportArray()
     {
         $salaryDate = $this->getFormattedDate($this->getSalaryDate());
@@ -24,6 +39,11 @@ class MonthPayments implements Exportable
         ];
     }
 
+    /**
+     * Retrieve the date on which bonuses should be paid for this specific month
+     * Will return null if no bonuses should be paid
+     * @return \DateTime|null
+     */
     private function getBonusDate()
     {
         // Get 15th of month
@@ -43,6 +63,11 @@ class MonthPayments implements Exportable
         return $bonusDate;
     }
 
+    /**
+     * Retrieve the date on which salaries should be paid for this specific month
+     * Will return null if no salaries should be paid
+     * @return \DateTime|null
+     */
     private function getSalaryDate()
     {
         // Get last day of month
@@ -62,6 +87,11 @@ class MonthPayments implements Exportable
         return $lastDay;
     }
 
+    /**
+     * Checks wether a day is in the weekend or not
+     * @param \DateTime $dateTime
+     * @return bool
+     */
     private function isWeekend(\DateTime $dateTime)
     {
         $dayOfWeek = $dateTime->format('N');
@@ -71,6 +101,11 @@ class MonthPayments implements Exportable
         return false;
     }
 
+    /**
+     * Formats a datetime to a readable string specifying day-month-year (eg. 01-02-2016)
+     * @param $dateTime
+     * @return string
+     */
     private function getFormattedDate($dateTime)
     {
         if (is_null($dateTime)) {

@@ -11,7 +11,7 @@ $app->register(new \Knp\Provider\ConsoleServiceProvider(), [
     'console.project_directory' => __DIR__ . '/../'
 ]);
 
-// Regiter service providers
+// Register service providers
 $app->register(new \ServiceProviders\PaymentServiceProvider());
 $app->register(new \ServiceProviders\ExportServiceProvider());
 
